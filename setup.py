@@ -1,12 +1,14 @@
 """
 Generates random but realistic user agents on a command line (or via API)
 """
-from setuptools import find_packages, setup
 
 from os import path
+
+from setuptools import find_packages, setup
+
 this_directory = path.abspath(path.dirname(__file__))
 
-with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
+with open(path.join(this_directory, "README.md"), encoding="utf-8") as f:
     long_description = f.read()
 
 setup(
@@ -18,14 +20,14 @@ setup(
     author_email="cmrhorsley@gmail.com",
     description="Generates random but realistic user agents on a command line (or via API)",
     long_description=long_description,
-    long_description_content_type='text/markdown',
+    long_description_content_type="text/markdown",
     packages=find_packages(exclude=["tests"]),
     include_package_data=True,
     zip_safe=False,
     platforms="any",
     install_requires=[
         "aiocontextvars==0.2.2; python_version < '3.7'",
-        "certifi==2020.6.20",
+        "certifi>=2024.8.30",
         "chardet==3.0.4",
         "contextvars==2.4; python_version < '3.7'",
         "docopt==0.6.2",
@@ -38,7 +40,11 @@ setup(
         "user-agents==2.1",
     ],
     dependency_links=[],
-    entry_points={"console_scripts": ["uagen = ua_gen.cli:main",],},
+    entry_points={
+        "console_scripts": [
+            "uagen = ua_gen.cli:main",
+        ],
+    },
     classifiers=[
         # As from http://pypi.python.org/pypi?%3Aaction=list_classifiers
         # 'Development Status :: 1 - Planning',
